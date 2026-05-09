@@ -19,7 +19,7 @@ public class Sprite extends Rect{
 		this.pose = pose;
 		
 		for(int i = 0; i < animation.length; i++) {
-			animation[i] = new Animation(name, 7, pose[i], "png");
+			animation[i] = new Animation(name, 2, pose[i], "png");
 		}
 		
 		this.direction = direction;
