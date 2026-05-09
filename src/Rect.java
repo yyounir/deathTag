@@ -9,6 +9,20 @@ public class Rect
 	int h;
 	
 	boolean selected = false;
+
+	int direction;
+	
+	// Constant values that are used to index the animation array to select the correct animation for the direction the soldier is moving
+	static final int UP = 0;
+	static final int DN = 1;
+	static final int LT = 2;
+	static final int RT = 3;
+	
+//	Diagonal
+	static final int UL = 4;
+	static final int DL = 5;
+	static final int UR = 6;
+	static final int DR = 7;
 	
 	public Rect(int x, int y, int w, int h)
 	{
@@ -37,6 +51,29 @@ public class Rect
 	public void toggle()
 	{
 		selected = ! selected;
+	}
+	
+	public void pushLeftOn(Rect r) {
+		r.x -= (r.x + r.w - x + 2);
+	}
+	
+	public void pushRightOn(Rect r) {
+		r.x += (x + w - r.x + 2);
+	}
+	
+	public void pushUpOn(Rect r) {
+		r.y -= (r.y + r.h - y + 2);
+	}
+	
+	public void pushDownOn(Rect r) {
+		r.y += (y + h - r.y + 2);
+	}
+	
+	public void pushes(Rect r) {
+		if(r.direction == UP) 	pushDownOn(r);
+		if(r.direction == DN) 	pushUpOn(r);
+		if(r.direction == LT) 	pushRightOn(r);
+		if(r.direction == RT) 	pushLeftOn(r);
 	}
 	
 	public boolean overlaps(Rect r)

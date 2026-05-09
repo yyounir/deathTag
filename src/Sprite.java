@@ -1,88 +1,50 @@
 import java.awt.Graphics;
 
-public class Sprite {
+public class Sprite extends Rect{
 	String name;
 	
-	int x;
-	int y;
-	
-	int w;
-	int h;
-	
-	int direction = 0;
 	boolean moving = false;
+	
+	
 	
 	Animation[] animation = new Animation[4];
 	
-	boolean selected = false;
+	String[] pose;
 	
-	public Sprite(String name, int x, int y, int w, int h)
+	public Sprite(String name, int x, int y, int w, int h, int direction, String[] pose)
 	{
+		super(x, y, w, h);
 		this.name = name;
-		
-		String[] pose = {"up", "dn", "lt", "rt"};
+		this.pose = pose;
 		
 		for(int i = 0; i < animation.length; i++) {
-			animation[i] = new Animation(name, pose[i]);
+			animation[i] = new Animation(name, 7, pose[i], "png");
 		}
 		
-		this.x = x;
-		this.y = y;
-		
-		this.w = w;
-		this.h = h;
-	}
-	
-	public boolean isSelected() {
-		return selected;
-	}
-	
-	public void setSelected() {
-		selected = true;
-	}
-	
-	public void clearSelected() {
-		selected = false;
-	}
-	
-	public boolean overlaps(Rect r)
-	{
-		return (x <= r.x + r.w) &&
-			   (y <= r.y + r.h) &&
-			   
-			   (r.x <= x + w)   &&
-			   (r.y <= y + h);	
-	}
-	
-	public boolean contains(int mx, int my)
-	{
-		return (mx > x)   && 
-			   (mx < x+w) && 
-			   (my > y)   && 
-			   (my < y+h);
-	}
+		this.direction = direction;
+	}	
 	
 	public void moveUP(int dy) {
 		y -= dy;
-		direction = 0;
+		direction = UP;
 		moving = true;
 	}
 	
 	public void moveDN(int dy) {
 		y += dy;
-		direction = 1;
+		direction = DN;
 		moving = true;
 	}
 	
 	public void moveLT(int dx) {
 		x -= dx;
-		direction = 2;
+		direction = LT;
 		moving = true;
 	}
 	
 	public void moveRT(int dx) {
 		x += dx;
-		direction = 3;
+		direction = RT;
 		moving = true;
 	}	
 		
@@ -93,6 +55,8 @@ public class Sprite {
 		else {
 			g.drawImage(animation[direction].stillImage(), x, y, w, h, null);
 		}
+		
+		new Rect(x, y, w, h).draw(g);
 		
 		moving = false;
 	}

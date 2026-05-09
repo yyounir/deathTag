@@ -3,17 +3,20 @@ import java.awt.*;
 
 public class Animation {
 	Image[] image = new Image[7];
-	String direction = "up";
+	String direction = "dn";
 	int current = 0;
 	int duration = 10;
-	int delay = duration;
+	int delay;
 	String name;
 	
-	public Animation(String name, String direction) {
+	public Animation(String name, int duration, String direction, String filetype) {
 		this.name = name;
 		this.direction = direction;
+		this.duration = duration;
+		delay = duration;
+		
 		for(int i =0; i< image.length; i++) {
-			image[i] = Toolkit.getDefaultToolkit().getImage(name + "-" + this.direction + i + ".png");
+			image[i] = Toolkit.getDefaultToolkit().getImage(name + "-" + this.direction + i + "." + filetype);
 		}
 	}
 	

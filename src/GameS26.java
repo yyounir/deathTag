@@ -2,164 +2,73 @@ import java.applet.*;
 import java.awt.*;
 import java.awt.event.*;
 
-public class GameS26 extends Applet implements Runnable, KeyListener, MouseListener, MouseMotionListener
-{		
-	Image off_screen;
-	Graphics off_screen_g;
+public class GameS26 extends GameBase {		
 	
-	boolean pressing_UP = false;
-	boolean pressing_DN = false;
-	boolean pressing_LT = false;
-	boolean pressing_RT = false;
+	Violetta v = new Violetta(100, 100, Violetta.DN);
+	Younir y = new Younir(100, 100, Younir.DN);
 	
-	int mx;
-	int my;
+	Rect r1 = new Rect(800, 100, 20, 800);
+	Rect r2 = new Rect(800, 100, 600, 20);
+	Rect r3 = new Rect(20, 100, 800, 20);
+	Rect r4 = new Rect(800, 100, 20, 800);
 	
-	
-	Thread t;
-	
-	Animation animationUP = new Animation("y", "up");
-	Animation animationDN = new Animation("y", "dn");
-	Animation animationLT = new Animation("y", "lt");
-	Animation animationRT = new Animation("y", "rt");
-	
-//	Sprite r = new Sprite("v", 100, 100, 100, 181);
-	Sprite r = new Sprite("y", 100, 100, 100, 214);
-	
-	public void run()
+	public void inGameLoop()
 	{
-		while(true)
-		{
-			// Code that executes 60 times per second
-			
-			// Move User Controlled Objects
-			if(pressing_UP) r.moveUP(5);
-			if(pressing_DN) r.moveDN(5);
-			if(pressing_LT) r.moveLT(5);
-			if(pressing_RT) r.moveRT(5);
-			
-			// Move Computer Controlled Objects
-
-			
-			// Handle Collisions
-			
-			
-			
-			// Update the Screen
-			
-			repaint();
-			
-			try
-			{
-				Thread.sleep(16);
-			}
-			catch(Exception x) {};
+		// Code that executes 60 times per second
+		
+		// Move User Controlled Objects
+		int speed = 5;
+		
+		if(pressing[SHFT]) {
+			speed = 10;
 		}
+		
+		if(pressing[UP] || pressing[_W]) {
+			y.moveUP(speed);
+			if(y.overlaps(r1))	r1.pushDownOn(y);
+		}
+		if(pressing[DN] || pressing[_S]) {
+			y.moveDN(speed);
+			if(y.overlaps(r1))	r1.pushUpOn(y);
+		}
+		if(pressing[LT] || pressing[_A]) {
+			y.moveLT(speed);
+			if(y.overlaps(r1))	r1.pushRightOn(y);
+		}
+		if(pressing[RT] || pressing[_D]) {
+			y.moveRT(speed);
+			if(y.overlaps(r1))	r1.pushLeftOn(y);
+		}
+		
+		// Move Computer Controlled Objects
 
-	}
-	
-	public void update(Graphics g) {
-		off_screen_g.clearRect(0, 0, 1920, 1080);
-		paint(off_screen_g);
-		g.drawImage(off_screen, 0, 0, null);
+		
+		// Handle Collisions
+		if((pressing[UP] || pressing[_W]) && y.overlaps(r1)) 	r1.pushDownOn(y);;
+		if((pressing[DN] || pressing[_S]) && y.overlaps(r1)) 	r1.pushUpOn(y);;
+		if((pressing[LT] || pressing[_A]) && y.overlaps(r1)) 	r1.pushRightOn(y);;
+		if((pressing[RT] || pressing[_D]) && y.overlaps(r1))	r1.pushLeftOn(y);;
+		
+//		if(y.overlaps(r1)) r1.pushes(y);
+//		if(y.overlaps(r2)) r2.pushes(y);
+//		if(y.overlaps(r3)) r3.pushes(y);
+//		if(y.overlaps(r4)) r4.pushes(y);
+		
+		
+		
+		// Update the Screen
+
 	}
 	
 	public void paint(Graphics g) {	
-		r.draw(g);
-//		g.drawImage(animationUP.nextImage(), 100, 100, 100, 214, null);
-//		g.drawImage(animationDN.nextImage(), 300, 100, 100, 214, null);
-//		g.drawImage(animationLT.nextImage(), 500, 100, 100, 214, null);
-//		g.drawImage(animationRT.nextImage(), 700, 100, 100, 214, null);
+		g.setColor(Color.BLACK);
+		y.draw(g);
+		
+//		if(y.overlaps(r1))	g.setColor(Color.RED);
+		
+		r1.draw(g);
+		r2.draw(g);
+//		r3.draw(g);
+//		r4.draw(g);
 	}	
-	
-	public void init()
-	{		
-		off_screen = createImage(1920, 1080);
-		off_screen_g = off_screen.getGraphics();
-		
-		requestFocus();
-		
-		addKeyListener(this);
-		
-		addMouseListener(this);
-		addMouseMotionListener(this);
-		
-		
-		t = new Thread(this);
-		
-		t.start();
-	}
-	
-	public void mouseMoved(MouseEvent e)
-	{
-		
-	}
-	
-	public void mouseDragged(MouseEvent e)
-	{
-		int nx = e.getX();
-		int ny = e.getY();
-		
-		int w = nx - mx;
-		int h = ny - my;
-	}
-	
-	public void mousePressed(MouseEvent e)
-	{
-		mx = e.getX();
-		my = e.getY();
-	}
-
-	/*
-	// This version allows you to pick one of the rectangles by pressing the mouse button
-	// while the mouse is inside the rectangle
-	 
-	public void mousePressed(MouseEvent e)
-	{
-		mx = e.getX();
-		my = e.getY();
-		
-		for(int i = 0; i < r.length; i++)
-		{
-			if(r[i].contains(mx, my))   my_r = r[i];
-		}
-	}
-	*/
-	
-	public void mouseReleased(MouseEvent e)
-	{
-	}
-	
-	public void mouseClicked(MouseEvent e) {}
-	public void mouseEntered(MouseEvent e) {}
-	public void mouseExited(MouseEvent e)  {}
-	
-	
-
-	public void keyPressed(KeyEvent e)
-	{
-		int code = e.getKeyCode();
-		
-		if(code == e.VK_UP)      pressing_UP = true;
-		if(code == e.VK_DOWN)    pressing_DN = true;
-		if(code == e.VK_LEFT)    pressing_LT = true;
-		if(code == e.VK_RIGHT)   pressing_RT = true;		
-	}
-	
-	public void keyReleased(KeyEvent e)
-	{
-		int code = e.getKeyCode();
-		
-		if(code == e.VK_UP)      pressing_UP = false;
-		if(code == e.VK_DOWN)    pressing_DN = false;
-		if(code == e.VK_LEFT)    pressing_LT = false;
-		if(code == e.VK_RIGHT)   pressing_RT = false;				
-	}
-	
-	public void keyTyped(KeyEvent e)  {}
-	
-	
-	
-
-	
 }
