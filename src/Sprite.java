@@ -3,7 +3,8 @@ import java.awt.Graphics;
 public class Sprite extends Rect{
 	String name;
 	
-	boolean moving = false;
+	boolean moving = false;	
+	boolean physics = false;
 	
 	
 	
@@ -23,6 +24,56 @@ public class Sprite extends Rect{
 		
 		this.direction = direction;
 	}	
+	
+	public void move()
+	{
+		x += vx;		
+		y += vy;
+		
+		if (physics == false)
+		{
+			vx = 0;
+			vy = 0;
+		}
+	}
+	
+	
+	public void goUP(int dy)
+	{
+		vy = -dy;
+		
+		direction = UP;
+		
+		moving = true;
+	}
+	
+	public void goDN(int dy)
+	{
+		vy = dy;
+
+		direction = DN;
+
+		moving = true;
+	}
+	
+	public void goLT(int dx)
+	{
+		vx = -dx;
+
+		direction = LT;
+		
+		moving = true;
+	}
+	
+	public void goRT(int dx)
+	{
+		vx = dx;
+		
+		direction = RT;
+
+		moving = true;
+
+	}
 	
 	public void moveUP(int dy) {
 		y -= dy;
@@ -56,7 +107,7 @@ public class Sprite extends Rect{
 			g.drawImage(animation[direction].stillImage(), x, y, w, h, null);
 		}
 		
-		new Rect(x, y, w, h).draw(g);
+//		new Rect(x, y, w, h).draw(g);
 		
 		moving = false;
 	}

@@ -6,8 +6,8 @@ public class GameS26 extends GameBase {
 	
 	Violetta v = new Violetta(100, 100, Violetta.DN);
 	Younir y = new Younir(100, 100, Younir.DN);
-	
-	Rect r1 = new Rect(800, 100, 20, 800);
+		
+	Rect r1 = new Rect(800, 100, 20, 500);
 	Rect r2 = new Rect(800, 100, 600, 20);
 	Rect r3 = new Rect(20, 100, 800, 20);
 	Rect r4 = new Rect(800, 100, 20, 800);
@@ -22,36 +22,26 @@ public class GameS26 extends GameBase {
 		if(pressing[SHFT]) {
 			speed = 10;
 		}
+//		y.physics = true;
+		if(pressing[UP] || pressing[_W]) 	y.goUP(speed);
+		if(pressing[DN] || pressing[_S]) 	y.goDN(speed);
+		if(pressing[LT] || pressing[_A])	y.goLT(speed);
+		if(pressing[RT] || pressing[_D])	y.goRT(speed);
 		
-		if(pressing[UP] || pressing[_W]) {
-			y.moveUP(speed);
-			if(y.overlaps(r1))	r1.pushDownOn(y);
-		}
-		if(pressing[DN] || pressing[_S]) {
-			y.moveDN(speed);
-			if(y.overlaps(r1))	r1.pushUpOn(y);
-		}
-		if(pressing[LT] || pressing[_A]) {
-			y.moveLT(speed);
-			if(y.overlaps(r1))	r1.pushRightOn(y);
-		}
-		if(pressing[RT] || pressing[_D]) {
-			y.moveRT(speed);
-			if(y.overlaps(r1))	r1.pushLeftOn(y);
-		}
+		y.move();
 		
 		// Move Computer Controlled Objects
 
 		
 		// Handle Collisions
-		if((pressing[UP] || pressing[_W]) && y.overlaps(r1)) 	r1.pushDownOn(y);;
-		if((pressing[DN] || pressing[_S]) && y.overlaps(r1)) 	r1.pushUpOn(y);;
-		if((pressing[LT] || pressing[_A]) && y.overlaps(r1)) 	r1.pushRightOn(y);;
-		if((pressing[RT] || pressing[_D]) && y.overlaps(r1))	r1.pushLeftOn(y);;
+//		if((pressing[UP] || pressing[_W]) && y.overlaps(r2)) 	r2.pushDown(y);;
+//		if((pressing[DN] || pressing[_S]) && y.overlaps(r2)) 	r2.pushUp(y);;
+//		if((pressing[LT] || pressing[_A]) && y.overlaps(r2)) 	r2.pushRight(y);;
+//		if((pressing[RT] || pressing[_D]) && y.overlaps(r2))	r2.pushLeft(y);;
 		
-//		if(y.overlaps(r1)) r1.pushes(y);
-//		if(y.overlaps(r2)) r2.pushes(y);
-//		if(y.overlaps(r3)) r3.pushes(y);
+		if(r1.overlaps(y)) r1.pushes(y);
+		if(r2.overlaps(y)) r2.pushes(y);
+		if(r3.overlaps(y)) r3.pushes(y);
 //		if(y.overlaps(r4)) r4.pushes(y);
 		
 		
@@ -68,7 +58,7 @@ public class GameS26 extends GameBase {
 		
 		r1.draw(g);
 		r2.draw(g);
-//		r3.draw(g);
+		r3.draw(g);
 //		r4.draw(g);
 	}	
 }

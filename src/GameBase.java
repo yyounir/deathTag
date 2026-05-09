@@ -131,6 +131,8 @@ public abstract class GameBase extends Applet implements Runnable, KeyListener, 
 		t = new Thread(this);
 		
 		t.start();
+		
+		
 	}
 	
 	public void mouseMoved(MouseEvent 		e) {}

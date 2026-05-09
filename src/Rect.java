@@ -8,6 +8,10 @@ public class Rect
 	int w;
 	int h;
 	
+	int vx;
+	int vy;
+	
+	
 	boolean selected = false;
 
 	int direction;
@@ -53,27 +57,47 @@ public class Rect
 		selected = ! selected;
 	}
 	
-	public void pushLeftOn(Rect r) {
-		r.x -= (r.x + r.w - x + 2);
+	public void pushLeft(Rect r)
+	{
+		int penetration = r.x + r.w - x;
+		
+		if(penetration < 10)
+			
+			r.x -= penetration + 1;
 	}
 	
-	public void pushRightOn(Rect r) {
-		r.x += (x + w - r.x + 2);
+	public void pushRight(Rect r)
+	{
+		int penetration = x + w - r.x;
+		
+		if(penetration < 10)
+			
+			r.x += penetration + 1;
 	}
 	
-	public void pushUpOn(Rect r) {
-		r.y -= (r.y + r.h - y + 2);
+	public void pushUp(Rect r)
+	{
+		int penetration = r.y + r.h - y ;
+		
+		if(penetration < 10)
+			
+			r.y -= penetration + 1;
 	}
 	
-	public void pushDownOn(Rect r) {
-		r.y += (y + h - r.y + 2);
+	public void pushDown(Rect r)
+	{
+		int penetration = y + h - r.y;
+		
+		if(penetration < 10)
+			
+			r.y += penetration + 1;
 	}
 	
 	public void pushes(Rect r) {
-		if(r.direction == UP) 	pushDownOn(r);
-		if(r.direction == DN) 	pushUpOn(r);
-		if(r.direction == LT) 	pushRightOn(r);
-		if(r.direction == RT) 	pushLeftOn(r);
+		pushDown(r);
+		pushUp(r);
+		pushRight(r);
+		pushLeft(r);
 	}
 	
 	public boolean overlaps(Rect r)
