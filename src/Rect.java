@@ -62,7 +62,7 @@ public class Rect
 		int penetration = r.x + r.w - x;
 		
 //		if(penetration < r.w / 2)
-		if(penetration < 10)	r.x -= penetration + 1;
+		if(penetration < 17)	r.x -= penetration + 1;
 	}
 	
 	public void pushRight(Rect r)
@@ -70,7 +70,7 @@ public class Rect
 		int penetration = x + w - r.x;
 		
 //		if(penetration < r.w / 2)
-		if(penetration < 10)	r.x += penetration + 1;
+		if(penetration < 17)	r.x += penetration + 1;
 	}
 	
 	public void pushUp(Rect r)
@@ -78,7 +78,7 @@ public class Rect
 		int penetration = r.y + r.h - y ;
 		
 //		if(penetration < r.h / 2)
-		if(penetration < 10)	r.y -= penetration + 1;
+		if(penetration < 17)	r.y -= penetration + 1;
 	}
 	
 	public void pushDown(Rect r)
@@ -86,7 +86,7 @@ public class Rect
 		int penetration = y + h - r.y;
 		
 //		if(penetration < r.h / 2)
-		if(penetration < 10)	r.y += penetration + 1;
+		if(penetration < 17)	r.y += penetration + 1;
 	}
 	
 	public void pushes(Rect r) {

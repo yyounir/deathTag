@@ -74,7 +74,7 @@ public class Wall extends Rect{
 				this.h = 473;
 				break;
 			default:
-				System.out.println(filename + " is invalid");
+				System.out.println(filename + " isn't configured");
 		}
 		
 		this.x = x;

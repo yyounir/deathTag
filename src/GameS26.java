@@ -14,7 +14,8 @@ public class GameS26 extends GameBase {
 		new Rect(0, 70, 1700, 20), // TOP
 	    new Rect(30, 0, 20, 1000), // LEFT
 	    new Rect(1565, 0, 20, 1000), // RIGHT
-	    new Rect(0, 850, 1700, 20), // BOTTOM
+	    new Rect(0, 850, 290, 60), // BOTTOM
+	    new Rect(350, 850, 1290, 60), // BOTTOM
 	    new Rect(20, 90, 350, 145),
 	};
 	
@@ -54,9 +55,21 @@ public class GameS26 extends GameBase {
 		new Wall("mazeTop3.png", 1425, 275),
 	};
 	
+	Food[] food = {
+		new Food("strawberry", 100, 300),
+		new Food("avocado", 50, 300),
+		new Food("apple", 100, 700),
+		new Food("appleworm", 50, 700),
+		new Food("beer", 100, 750),
+		new Food("boar", 50, 750),
+	};
+	int score = 0;
+	
+	double speed = 5;
+	
 //	Wall wall1 = new Wall("mazeWall1.png", 500, 500);
-	Wall top1 = new Wall("mazeTop1.png", 500, 460);
-//	Image wallTop = Toolkit.getDefaultToolkit().createImage("mazeTop1.png");
+//	Wall top1 = new Wall("mazeTop1.png", 500, 460);
+//	Image strawberry = Toolkit.getDefaultToolkit().createImage("strawberry.png");
 	
 	Background background = new Background("mazeEmpty.png", 1600, 900);
 	
@@ -67,16 +80,16 @@ public class GameS26 extends GameBase {
 		// Move User Controlled Objects
 		bc.chase(y);
 		
-		int speed = 5;
 		
-		if(pressing[SHFT]) {
-			speed = 10;
-		}
+		
+//		if(pressing[SHFT]) {
+//			speed = 10;
+//		}
 //		y.physics = true;
-		if(pressing[UP] || pressing[_W]) 	y.goUP(speed);
-		if(pressing[DN] || pressing[_S]) 	y.goDN(speed);
-		if(pressing[LT] || pressing[_A])	y.goLT(speed);
-		if(pressing[RT] || pressing[_D])	y.goRT(speed);
+		if(pressing[UP] || pressing[_W]) 	y.goUP((int)speed);
+		if(pressing[DN] || pressing[_S]) 	y.goDN((int)speed);
+		if(pressing[LT] || pressing[_A])	y.goLT((int)speed);
+		if(pressing[RT] || pressing[_D])	y.goRT((int)speed);
 		
 		y.move();
 		
@@ -111,6 +124,18 @@ public class GameS26 extends GameBase {
 
 		}
 		
+		for(int i = 0; i < food.length; i++) {
+			if(food[i].overlaps(y)) {
+				food[i].eaten = true;
+				if(food[i].incrementScore) {
+					speed+= 0.5;
+					score++;
+					System.out.println("Speed is now " + speed + ". Total score " + score);
+					food[i].incrementScore = false;
+				}
+			}
+		}
+		
 //		if(bc.overlaps(y)) bc.pushes(y);
 		
 //		if(y.overlaps(r4)) r4.pushes(y);
@@ -127,10 +152,7 @@ public class GameS26 extends GameBase {
 		
 		g.setColor(Color.YELLOW);
 		
-		
 //		g.drawImage(wallTop, 500, 500, 234, 72, null);
-		
-		
 		
 //		if(y.overlaps(r1))	g.setColor(Color.RED);
 		
@@ -150,6 +172,14 @@ public class GameS26 extends GameBase {
 		for(int i = 0; i < r.length; i++) {
 //			 r[i].draw(g);
 		}
+		
+		for(int i = 0; i < food.length; i++) {
+			food[i].draw(g);
+		}
+		
+//		food[0].draw(g);
+//		System.out.println(food[0].filename);
+//		g.drawImage(strawberry, 100, 300, 50, 50, null);
 		
 		y.draw(g);
 //		v.draw(g);
