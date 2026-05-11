@@ -1,6 +1,7 @@
 import java.applet.*;
 import java.awt.*;
 import java.awt.event.*;
+import java.io.File;
 
 public abstract class GameBase extends Applet implements Runnable, KeyListener, MouseListener, MouseMotionListener
 {		
@@ -85,6 +86,7 @@ public abstract class GameBase extends Applet implements Runnable, KeyListener, 
 	int mx;
 	int my;
 	
+	Font customFont, customFontSub;
 	
 	Thread t;
 	
@@ -131,6 +133,17 @@ public abstract class GameBase extends Applet implements Runnable, KeyListener, 
 		t = new Thread(this);
 		
 		t.start();
+		
+		try {
+			customFont = Font.createFont(Font.TRUETYPE_FONT, new File("Jersey10-Regular.ttf"));
+		    customFont = customFont.deriveFont(Font.PLAIN, 56f);
+		    customFontSub = Font.createFont(Font.TRUETYPE_FONT, new File("Jersey10-Regular.ttf"));
+		    customFontSub = customFont.deriveFont(Font.PLAIN, 35f);
+		} 
+		catch (Exception e) {
+		    e.printStackTrace();
+		    customFont = new Font("Arial", Font.PLAIN, 56);
+		}
 		
 		
 	}

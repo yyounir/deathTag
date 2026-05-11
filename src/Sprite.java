@@ -98,6 +98,12 @@ public class Sprite extends Rect{
 		direction = RT;
 		moving = true;
 	}	
+	
+	public void setPosition(int x, int y) {
+		this.x = x;
+		this.y = y;
+		direction = UP;
+	}
 		
 	public void draw(Graphics g) {
 		if(moving) {

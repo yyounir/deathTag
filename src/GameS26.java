@@ -2,6 +2,7 @@ import java.applet.*;
 import java.awt.*;
 import java.awt.Toolkit;
 import java.awt.event.*;
+import java.io.File;
 
 public class GameS26 extends GameBase {		
 	
@@ -17,6 +18,7 @@ public class GameS26 extends GameBase {
 	    new Rect(0, 850, 290, 60), // BOTTOM
 	    new Rect(350, 850, 1290, 60), // BOTTOM
 	    new Rect(20, 90, 350, 145),
+	    new Rect(1450, 90, 100, 100), // COMPLETE r[6]
 	};
 	
 	Wall[] wall = {
@@ -56,22 +58,60 @@ public class GameS26 extends GameBase {
 	};
 	
 	Food[] food = {
-		new Food("strawberry", 100, 300),
+		new Food("strawberry", 100, 350),
 		new Food("avocado", 50, 300),
 		new Food("apple", 100, 700),
 		new Food("appleworm", 50, 700),
 		new Food("beer", 100, 750),
 		new Food("boar", 50, 750),
+		new Food("bread", 265, 550),
+		new Food("brownie", 265, 375),
+		new Food("cheese", 215, 375),
+		new Food("cherry", 400, 375),
+		new Food("chicken", 400, 275),
+		
+		new Food("chickenleg", 990, 375),
+		new Food("cookie", 940, 375),
+		new Food("dragonfruit", 890, 375),
+		
+		new Food("eggplant", 1115, 325),
+		new Food("eggs", 1115, 375),
+		new Food("fish", 1115, 425),
+		
+		new Food("fishfillet", 1115, 550),
+		new Food("fishsteak", 1115, 600),
 	};
-	int score = 0;
 	
-	double speed = 5;
+	Obstacle[] barrel = {
+		new Obstacle("web", 100, 300),
+		new Obstacle("barrel", 220, 600),
+		new Obstacle("barrel", 50, 550),
+		new Obstacle("barrel", 50, 600),
+		new Obstacle("barrel", 215, 300),
+		new Obstacle("barrel", 350, 675),
+		new Obstacle("web", 400, 675),
+		new Obstacle("web", 400, 100),
+	};
+
+	int score = 0;	
+	double speed = 2;
+	int lives = 5;
+	boolean outputOnce = true;
+	String scoreMessage = "FOODS EATEN: " + score; 
+	String speedMessage = "SPEED: " + speed + "mph";
+	
 	
 //	Wall wall1 = new Wall("mazeWall1.png", 500, 500);
 //	Wall top1 = new Wall("mazeTop1.png", 500, 460);
-//	Image strawberry = Toolkit.getDefaultToolkit().createImage("strawberry.png");
+	Image sign1 = Toolkit.getDefaultToolkit().createImage("sign1.png");
+	Image sign2 = Toolkit.getDefaultToolkit().createImage("sign2.png");
+	Image sign3 = Toolkit.getDefaultToolkit().createImage("sign3.png");
 	
 	Background background = new Background("mazeEmpty.png", 1600, 900);
+	Background complete = new Background("complete.png", 1600, 900);
+	Background gameover = new Background("gameover.png", 1600, 900);
+	
+	
 	
 	public void inGameLoop()
 	{
@@ -97,9 +137,16 @@ public class GameS26 extends GameBase {
 
 		
 		// Handle Collisions
-		for(int i = 0; i < r.length; i++) {
+		for(int i = 0; i < r.length-1; i++) {
 			if(r[i].overlaps(y)) r[i].pushes(y);
 			if(r[i].overlaps(bc)) r[i].pushes(bc);
+		}
+		
+		
+		
+		for(int i = 0; i < barrel.length; i++) {
+			if(barrel[i].overlaps(y)) barrel[i].pushes(y);
+			if(barrel[i].overlaps(bc)) barrel[i].pushes(bc);
 		}
 		
 		for(int i = 0; i < wallTop.length; i++) {
@@ -128,15 +175,26 @@ public class GameS26 extends GameBase {
 			if(food[i].overlaps(y)) {
 				food[i].eaten = true;
 				if(food[i].incrementScore) {
-					speed+= 0.5;
 					score++;
-					System.out.println("Speed is now " + speed + ". Total score " + score);
+					if(speed <= 15) {
+						speed+= 0.25;
+//						System.out.println("Speed is now " + speed + ". Total score " + score);
+						scoreMessage = "FOODS EATEN: " + score;
+						speedMessage = "SPEED: " + speed + "mph";
+					}
+					
+					
 					food[i].incrementScore = false;
 				}
 			}
 		}
 		
-//		if(bc.overlaps(y)) bc.pushes(y);
+		if(bc.overlaps(y)) {
+			bc.pushes(y);
+			lives -= 1;
+			y.setPosition(300, 800);
+			
+		}
 		
 //		if(y.overlaps(r4)) r4.pushes(y);
 		
@@ -177,12 +235,35 @@ public class GameS26 extends GameBase {
 			food[i].draw(g);
 		}
 		
+		for(int i = 0; i < barrel.length; i++) {
+			barrel[i].draw(g);
+		}
+		
 //		food[0].draw(g);
 //		System.out.println(food[0].filename);
-//		g.drawImage(strawberry, 100, 300, 50, 50, null);
+		g.drawImage(sign1, 520, 100, 158, 50, null);
+		g.drawImage(sign2, 1100, 100, 104, 50, null);
+		g.drawImage(sign3, 1345, 535, 104, 50, null);
 		
 		y.draw(g);
 //		v.draw(g);
 		bc.draw(g);
+		
+		g.setFont(customFont);
+		g.drawString(scoreMessage + "/" + food.length, 50, 100);
+		g.setFont(customFontSub);
+		g.drawString(speedMessage, 50, 156);
+		g.drawString("Lives: " + lives, 50, 186);
+		
+		if(r[6].overlaps(y)) complete.draw(g);
+		
+		if(lives == 0) {
+			gameover.draw(g);
+		}
+		
+		if(outputOnce) {
+//			System.out.println(new File("bin/PixelifySans-Regular.ttf").getAbsolutePath());
+			outputOnce = false;
+		}
 	}	
 }
