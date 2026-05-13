@@ -21,6 +21,6 @@ public class Obstacle extends Rect {
 	
 	public void draw(Graphics g) {
 		g.drawImage(image, x, y, 50, 66, null);
-//		new Rect(x, y, 50, 25).draw(g);
+//		new Rect(x, y, 50, 15).draw(g);
 	}
 }

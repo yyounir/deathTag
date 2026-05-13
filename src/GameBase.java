@@ -9,6 +9,7 @@ public abstract class GameBase extends Applet implements Runnable, KeyListener, 
 	Graphics off_screen_g;
 	
 	boolean[] pressing = new boolean[1024];
+	boolean[] typed = new boolean[1024];
 	
 	public static final int UP 			= KeyEvent.VK_UP;
 	public static final int DN 			= KeyEvent.VK_DOWN;
@@ -166,7 +167,9 @@ public abstract class GameBase extends Applet implements Runnable, KeyListener, 
 		pressing[e.getKeyCode()] = false;				
 	}
 	
-	public final void keyTyped(KeyEvent e)  {}
+	public final void keyTyped(KeyEvent e)  {
+		
+	}
 	
 	
 	
