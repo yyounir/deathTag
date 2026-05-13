@@ -37,7 +37,7 @@ public class Sign extends Rect{
 				break;
 			case "sign5":
 				this.w = 86;
-				this.h = 50;
+				this.h = 65;
 				break;
 			case "sign6":
 				this.w = 108;
@@ -47,12 +47,20 @@ public class Sign extends Rect{
 				this.w = 103;
 				this.h = 50;
 				break;
+			case "sign11":
+				this.w = 113;
+				this.h = 50;
+				break;
 			case "sign8":
 				this.w = 108;
 				this.h = 50;
 				break;
 			case "sign9":
 				this.w = 86;
+				this.h = 50;
+				break;
+			case "sign10":
+				this.w = 70;
 				this.h = 50;
 				break;
 			default:

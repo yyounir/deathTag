@@ -9,6 +9,11 @@ public class GameS26 extends GameBase {
 	Younir y = new Younir(300, 800, Younir.UP);
 	
 	BadChar bc = new BadChar(800, 450, Violetta.LT);
+	
+	BadChar[] bcMultiple = {
+		new BadChar(70, 740, Violetta.RT),
+		new BadChar(70, 400, Violetta.RT),
+	};
 		
 	Rect[][] r = {{
 //		Level 1: Index 0-6 7 is complete
@@ -84,7 +89,38 @@ public class GameS26 extends GameBase {
 		new Wall("mazeWall1[2]", 1430, 290),
 		new Wall("mazeWall1alt[2]", 1247, 320),
 	},{
-		new Wall("mazeWall1[3]", 1247, 320),
+		new Wall("mazeWall1[3]", 1427, 250),
+		new Wall("mazeWall1alt[3]", 1227, 250),
+		new Wall("mazeWall1[3]", 1030, 250),
+		new Wall("mazeWall1alt[3]", 833, 250),
+		new Wall("mazeWall1[3]", 636, 250),
+		new Wall("mazeWall1alt[3]", 439, 250),
+		new Wall("mazeWall1alt[3]", 1427, 391),
+		new Wall("mazeWall1[3]", 1227, 391),
+		new Wall("mazeWall1alt[3]", 1030, 391),
+		new Wall("mazeWall1[3]", 833, 391),
+		new Wall("mazeWall1alt[3]", 636, 391),
+		new Wall("mazeWall1[3]", 439, 391),
+		new Wall("mazeWall1alt[3]", 242, 391),
+		new Wall("mazeWall1[3]", 51, 391),
+		
+		new Wall("mazeWall1[3]", 1427, 532),
+		new Wall("mazeWall1alt[3]", 1227, 532),
+		new Wall("mazeWall1[3]", 1030, 532),
+		new Wall("mazeWall1alt[3]", 833, 532),
+		new Wall("mazeWall1[3]", 636, 532),
+		new Wall("mazeWall1alt[3]", 439, 532),
+		new Wall("mazeWall1[3]", 242, 532),
+		new Wall("mazeWall1alt[3]", 51, 532),
+		
+		new Wall("mazeWall1alt[3]", 1427, 673),
+		new Wall("mazeWall1[3]", 1227, 673),
+		new Wall("mazeWall1alt[3]", 1030, 673),
+		new Wall("mazeWall1[3]", 833, 673),
+		new Wall("mazeWall1alt[3]", 636, 673),
+		new Wall("mazeWall1[3]", 439, 673),
+		new Wall("mazeWall1alt[3]", 242, 673),
+		new Wall("mazeWall1[3]", 51, 673),
 	},
 	{}};
 	
@@ -138,6 +174,35 @@ public class GameS26 extends GameBase {
 		new Wall("mazeTop1[2]", wall[1][18].x, (wall[1][18].y - 40)),
 	},{
 		new Wall("mazeTop1[3]", wall[2][0].x, (wall[2][0].y - 40)),
+		new Wall("mazeTop1[3]", wall[2][1].x, (wall[2][1].y - 40)),
+		new Wall("mazeTop1[3]", wall[2][2].x, (wall[2][2].y - 40)),
+		new Wall("mazeTop1[3]", wall[2][3].x, (wall[2][3].y - 40)),
+		new Wall("mazeTop1[3]", wall[2][4].x, (wall[2][4].y - 40)),
+		new Wall("mazeTop1[3]", wall[2][5].x, (wall[2][5].y - 40)),
+		new Wall("mazeTop1[3]", wall[2][6].x, (wall[2][6].y - 40)),
+		new Wall("mazeTop1[3]", wall[2][7].x, (wall[2][7].y - 40)),
+		new Wall("mazeTop1[3]", wall[2][8].x, (wall[2][8].y - 40)),
+		new Wall("mazeTop1[3]", wall[2][9].x, (wall[2][9].y - 40)),
+		new Wall("mazeTop1[3]", wall[2][10].x, (wall[2][10].y - 40)),
+		new Wall("mazeTop1[3]", wall[2][11].x, (wall[2][11].y - 40)),
+		new Wall("mazeTop1[3]", wall[2][12].x, (wall[2][12].y - 40)),
+		new Wall("mazeTop1[3]", wall[2][13].x, (wall[2][13].y - 40)),
+		new Wall("mazeTop1[3]", wall[2][14].x, (wall[2][14].y - 40)),
+		new Wall("mazeTop1[3]", wall[2][15].x, (wall[2][15].y - 40)),
+		new Wall("mazeTop1[3]", wall[2][16].x, (wall[2][16].y - 40)),
+		new Wall("mazeTop1[3]", wall[2][17].x, (wall[2][17].y - 40)),
+		new Wall("mazeTop1[3]", wall[2][18].x, (wall[2][18].y - 40)),
+		new Wall("mazeTop1[3]", wall[2][19].x, (wall[2][19].y - 40)),
+		new Wall("mazeTop1[3]", wall[2][20].x, (wall[2][20].y - 40)),
+		new Wall("mazeTop1[3]", wall[2][21].x, (wall[2][21].y - 40)),
+		new Wall("mazeTop1[3]", wall[2][22].x, (wall[2][22].y - 40)),
+		new Wall("mazeTop1[3]", wall[2][23].x, (wall[2][23].y - 40)),
+		new Wall("mazeTop1[3]", wall[2][24].x, (wall[2][24].y - 40)),
+		new Wall("mazeTop1[3]", wall[2][25].x, (wall[2][25].y - 40)),
+		new Wall("mazeTop1[3]", wall[2][26].x, (wall[2][26].y - 40)),
+		new Wall("mazeTop1[3]", wall[2][27].x, (wall[2][27].y - 40)),
+		new Wall("mazeTop1[3]", wall[2][28].x, (wall[2][28].y - 40)),
+		new Wall("mazeTop1[3]", wall[2][29].x, (wall[2][29].y - 40)),
 	},
 	{}};
 	
@@ -225,8 +290,71 @@ public class GameS26 extends GameBase {
 		new Food("fish", 1125, 300),
 		new Food("fishsteak", 1125, 240),
 	},{
-		new Food("PieApple", 300, 800),
-		new Food("fishsteak", 1125, 240),
+		new Food("Apple", 300, 800),
+		new Food("avocado", 350, 740),
+		new Food("beer", 410, 740),
+		new Food("boar", 470, 740),
+		new Food("brownie", 530, 740),
+		new Food("bread", 350, 790),
+		new Food("cheese", 410, 790),
+		new Food("cherry", 470, 790),
+		new Food("chicken", 530, 790),
+		
+		new Food("appleworm", 150, 575),
+		new Food("chickenleg", 210, 575),
+		new Food("cookie", 270, 575),
+		new Food("eggplant", 330, 575),
+		new Food("dragonfruit", 550, 575),
+		new Food("eggs", 610, 575),
+		new Food("fish", 670, 575),
+		new Food("fishsteak", 730, 575),
+		new Food("fishfillet", 950, 575),
+		new Food("grub", 1010, 575),
+		new Food("honey", 1070, 575),
+		new Food("jam", 1130, 575),
+		
+		new Food("honeycomb", 350, 435),
+		new Food("grubs", 410, 435),
+		new Food("jerky", 470, 435),
+		new Food("lemon", 530, 435),
+		new Food("marmalade", 750, 435),
+		new Food("meloncantaloupe", 810, 435),
+		new Food("melonhoneydew", 870, 435),
+		new Food("melonwater", 930, 435),
+		new Food("moonshine", 1150, 435),
+		new Food("olive", 1210, 435),
+		new Food("onion", 1270, 435),
+		new Food("peach", 1330, 435),
+		
+		new Food("peppergreen", 90, 300),
+		new Food("pepperoni", 150, 300),
+		new Food("pepperred", 210, 300),
+		new Food("pickle", 270, 300),
+		new Food("pickledeggs", 330, 300),
+		new Food("PieApple", 490, 300),
+		new Food("pielemon", 550, 300),
+		new Food("Piepumpkin", 610, 300),
+		new Food("pineapple", 670, 300),
+		new Food("potato", 730, 300),
+		new Food("pretzel", 790, 300),
+		new Food("ribs", 850, 300),
+		new Food("roll", 910, 300),
+		new Food("sardines", 1250, 300),
+		new Food("saki", 1310, 300),
+		new Food("sashimi", 1370, 300),
+		new Food("shrimp", 1430, 300),
+		
+		new Food("fish", 490, 160),
+		new Food("chicken", 550, 160),
+		new Food("steak", 610, 160),
+		new Food("stein", 670, 160),
+		new Food("strawberry", 730, 160),
+		new Food("sushi", 790, 160),
+		new Food("tart", 850, 160),
+		new Food("tomato", 910, 160),
+		new Food("turnip", 970, 160),
+		new Food("waffles", 1030, 160),
+		new Food("whiskey", 1090, 160),
 	},
 	{}};
 	
@@ -263,6 +391,26 @@ public class GameS26 extends GameBase {
 		new Obstacle("barrel", 1500, 570),
 	},{
 		new Obstacle("barrel", 1500, 570),
+		new Obstacle("web", 1125, 80),
+		new Obstacle("barrel", 1370, 660),
+//		new Obstacle("barrel", 1172, 660),
+		new Obstacle("barrel", 974, 660),
+		new Obstacle("barrel", 776, 660),
+		new Obstacle("barrel", 578, 660),
+//		new Obstacle("barrel", 380, 660),
+//		new Obstacle("barrel", 190, 660),
+		
+		new Obstacle("barrel", 974, 500),
+		new Obstacle("barrel", 578, 500),
+		new Obstacle("barrel", 190, 500),
+		
+		new Obstacle("barrel", 1370, 370),
+		new Obstacle("barrel", 1172, 370),
+//		new Obstacle("barrel", 974, 370),
+		new Obstacle("barrel", 578, 370),
+		
+		new Obstacle("barrel", 380, 300),
+		new Obstacle("barrel", 380, 230),
 	},
 	{}};
 	
@@ -282,7 +430,9 @@ public class GameS26 extends GameBase {
 		new NonObstacles("puddle", 1260, 200),
 		new NonObstacles("puddle", 1270, 200),
 	},{
-		new NonObstacles("puddle", 1270, 200),
+		new NonObstacles("puddle", 1170, 200),
+		new NonObstacles("puddle", 1170, 540),
+		new NonObstacles("puddle", 1170, 320),
 	},
 	{}};
 	
@@ -295,9 +445,10 @@ public class GameS26 extends GameBase {
 		new Sign("sign7", 820, 100),
 		new Sign("sign9", 1320, 100),
 	}, {
-//		new Sign("sign6", 520, 100),
-//		new Sign("sign7", 820, 100),
-//		new Sign("sign9", 1320, 100),
+		new Sign("sign10", 420, 100),
+		new Sign("sign8", 520, 100),
+		new Sign("sign11", 920, 100),
+		new Sign("sign5", 1320, 100),
 	},
 	{}};
 	
@@ -338,14 +489,33 @@ public class GameS26 extends GameBase {
 		// Code that executes 60 times per second
 		
 		// Move User Controlled Objects
-//		bc.chase(y);
+		bc.chase(y);
+		
+		for(int i = 0; i < bcMultiple.length; i++) {
+			if(level == 3) {bcMultiple[i].chase(y);}
+		}
 		
 		if(r[level-1][7].overlaps(y) && pressing[SPACE]) {
 		    gameComplete[level] = true;
 		    score[level] = 0;
 		    speed = 1.75;
 		    y.setPosition(300, 800);
-		    bc.setPosition(750, 450);
+		    switch(level) {
+		    	case 1:
+		    		bc.setPosition(750, 450);
+					break;
+		    	case 2:
+//		    		bc.setPosition(750, 450);
+		    		bc.setPosition(70, 550);
+					bcMultiple[0].setPosition(70, 740);
+					bcMultiple[1].setPosition(70, 400);
+					break;
+		    	case 3:
+		    		bc.setPosition(70, 550);
+					bcMultiple[0].setPosition(70, 740);
+					bcMultiple[1].setPosition(70, 400);
+					break;
+		    }
 		    level++;
 		    
 		}
@@ -382,27 +552,41 @@ public class GameS26 extends GameBase {
 		for(int i = 0; i < barrel[level-1].length; i++) {
 			if(barrel[level-1][i].overlaps(y)) barrel[level-1][i].pushes(y);
 			if(barrel[level-1][i].overlaps(bc)) barrel[level-1][i].pushes(bc);
+			if(barrel[level-1][i].overlaps(bcMultiple[0])) barrel[level-1][i].pushes(bcMultiple[0]);
+			if(barrel[level-1][i].overlaps(bcMultiple[1])) barrel[level-1][i].pushes(bcMultiple[1]);
 		}
 		
 		for(int i = 0; i < wallTop[level-1].length; i++) {
 			
 			if(wallTop[level-1][i].overlaps(y)) wallTop[level-1][i].pushes(y);
 			if(wallTop[level-1][i].overlaps(bc)) wallTop[level-1][i].pushes(bc);
+			if(wallTop[level-1][i].overlaps(bcMultiple[0])) wallTop[level-1][i].pushes(bcMultiple[0]);
+			if(wallTop[level-1][i].overlaps(bcMultiple[1])) wallTop[level-1][i].pushes(bcMultiple[1]);
 			
 			if(wallTop[level-1][i].rect2 != null && wallTop[level-1][i].rect2.overlaps(y)) wallTop[level-1][i].rect2.pushes(y);
 			if(wallTop[level-1][i].rect2 != null && wallTop[level-1][i].rect2.overlaps(bc)) wallTop[level-1][i].rect2.pushes(bc);
+			if(wallTop[level-1][i].rect2 != null && wallTop[level-1][i].rect2.overlaps(bcMultiple[0])) wallTop[level-1][i].rect2.pushes(bcMultiple[0]);
+			if(wallTop[level-1][i].rect2 != null && wallTop[level-1][i].rect2.overlaps(bcMultiple[1])) wallTop[level-1][i].rect2.pushes(bcMultiple[1]);
 			
 			if(wallTop[level-1][i].rect3 != null && wallTop[level-1][i].rect3.overlaps(y)) wallTop[level-1][i].rect3.pushes(y);
 			if(wallTop[level-1][i].rect3 != null && wallTop[level-1][i].rect3.overlaps(bc)) wallTop[level-1][i].rect3.pushes(bc);
+			if(wallTop[level-1][i].rect2 != null && wallTop[level-1][i].rect2.overlaps(bcMultiple[0])) wallTop[level-1][i].rect2.pushes(bcMultiple[0]);
+			if(wallTop[level-1][i].rect2 != null && wallTop[level-1][i].rect2.overlaps(bcMultiple[1])) wallTop[level-1][i].rect2.pushes(bcMultiple[1]);
 			
 			if(wallTop[level-1][i].rect4 != null && wallTop[level-1][i].rect4.overlaps(y)) wallTop[level-1][i].rect4.pushes(y);
 			if(wallTop[level-1][i].rect4 != null && wallTop[level-1][i].rect4.overlaps(bc)) wallTop[level-1][i].rect4.pushes(bc);
+			if(wallTop[level-1][i].rect2 != null && wallTop[level-1][i].rect2.overlaps(bcMultiple[0])) wallTop[level-1][i].rect2.pushes(bcMultiple[0]);
+			if(wallTop[level-1][i].rect2 != null && wallTop[level-1][i].rect2.overlaps(bcMultiple[1])) wallTop[level-1][i].rect2.pushes(bcMultiple[1]);
 			
 			if(wallTop[level-1][i].rect5 != null && wallTop[level-1][i].rect5.overlaps(y)) wallTop[level-1][i].rect5.pushes(y);
 			if(wallTop[level-1][i].rect5 != null && wallTop[level-1][i].rect5.overlaps(bc)) wallTop[level-1][i].rect5.pushes(bc);
+			if(wallTop[level-1][i].rect2 != null && wallTop[level-1][i].rect2.overlaps(bcMultiple[0])) wallTop[level-1][i].rect2.pushes(bcMultiple[0]);
+			if(wallTop[level-1][i].rect2 != null && wallTop[level-1][i].rect2.overlaps(bcMultiple[1])) wallTop[level-1][i].rect2.pushes(bcMultiple[1]);
 			
 			if(wallTop[level-1][i].rect6 != null && wallTop[level-1][i].rect6.overlaps(y)) wallTop[level-1][i].rect6.pushes(y);
 			if(wallTop[level-1][i].rect6 != null && wallTop[level-1][i].rect6.overlaps(bc)) wallTop[level-1][i].rect6.pushes(bc);
+			if(wallTop[level-1][i].rect2 != null && wallTop[level-1][i].rect2.overlaps(bcMultiple[0])) wallTop[level-1][i].rect2.pushes(bcMultiple[0]);
+			if(wallTop[level-1][i].rect2 != null && wallTop[level-1][i].rect2.overlaps(bcMultiple[1])) wallTop[level-1][i].rect2.pushes(bcMultiple[1]);
 
 		}
 		
@@ -414,11 +598,12 @@ public class GameS26 extends GameBase {
 					totalFoods++;
 					if(speed <= 15) {
 						speed+= 0.25;
-//						System.out.println("Speed is now " + speed + ". Total score " + score);
-						scoreMessage = "FOODS EATEN: " + score[level];
+//						
 						speedMessage = "SPEED: " + speed + "mph";
 						
 					}
+//					System.out.println("Speed is now " + speed + ". Total score " + score);
+					scoreMessage = "FOODS EATEN: " + score[level];
 					
 					
 					food[level-1][i].incrementScore = false;
@@ -426,7 +611,7 @@ public class GameS26 extends GameBase {
 			}
 		}
 		
-		if(bc.overlaps(y)) {
+		if(bc.overlaps(y) || bcMultiple[0].overlaps(y) || bcMultiple[1].overlaps(y)) {
 			bc.pushes(y);
 			lives -= 1;
 			y.setPosition(300, 800);
@@ -436,6 +621,11 @@ public class GameS26 extends GameBase {
 					break;
 				case 2:
 					bc.setPosition(750, 450);
+					break;
+				case 3:
+					bc.setPosition(70, 550);
+					bcMultiple[0].setPosition(70, 740);
+					bcMultiple[1].setPosition(70, 400);
 					break;
 			}
 			
@@ -450,6 +640,15 @@ public class GameS26 extends GameBase {
 
 	}
 	
+	public void title(Graphics g) {
+		
+//		y.still();
+		if(!gameStart) {
+			title.draw(g);
+		}
+		
+	}
+	
 	public void level1(Graphics g) {
 		
 		
@@ -457,7 +656,7 @@ public class GameS26 extends GameBase {
 		
 		background.draw(g);
 		
-		
+
 		g.setColor(Color.YELLOW);
 		
 //		g.drawImage(wallTop, 500, 500, 234, 72, null);
@@ -525,12 +724,12 @@ public class GameS26 extends GameBase {
 		
 		if(outputOnce) {
 //			System.out.println(new File("bin/PixelifySans-Regular.ttf").getAbsolutePath());
+			bcMultiple[0].setPosition(-970, -9550);
+			bcMultiple[1].setPosition(-970, -9550);
 			outputOnce = false;
 		}
 		
-		if(!gameStart) {
-			title.draw(g);
-		}
+		
 	}
 	
 	public void level2(Graphics g) {
@@ -596,6 +795,8 @@ public class GameS26 extends GameBase {
 		
 		if(outputOnce) {
 //			System.out.println(new File("bin/PixelifySans-Regular.ttf").getAbsolutePath());
+			bcMultiple[0].setPosition(-970, -9550);
+			bcMultiple[1].setPosition(-970, -9550);
 			outputOnce = false;
 		}
 	}
@@ -638,6 +839,10 @@ public class GameS26 extends GameBase {
 //		v.draw(g);
 		bc.draw(g);
 		
+		for(int i = 0; i < bcMultiple.length; i++) {
+			bcMultiple[i].draw(g);
+		}
+		
 		g.setFont(customFont);
 		g.drawString(scoreMessage + "/" + (food[level-1].length - 1), 50, 90);
 		g.setFont(customFontSub);
@@ -663,6 +868,9 @@ public class GameS26 extends GameBase {
 		
 		if(outputOnce) {
 //			System.out.println(new File("bin/PixelifySans-Regular.ttf").getAbsolutePath());
+			bc.setPosition(70, 550);
+			bcMultiple[0].setPosition(70, 740);
+			bcMultiple[1].setPosition(70, 400);
 			outputOnce = false;
 		}
 	}
@@ -675,24 +883,27 @@ public class GameS26 extends GameBase {
 	
 	
 	public void paint(Graphics g) {	
-//		level = 3;
-		switch(level) {
-			case 1:
-				level1(g);
-//				System.out.println("Level " + 1);
-				break;
-			case 2:
-				level2(g);
-//				System.out.println("Level " + 2);
-				break;
-			case 3:
-				level3(g);
-//				System.out.println("Level " + 3);
-				break;
-			case 4:
-				thanks(g);
-//				System.out.println("Level " + 4);
-				break;
+		title(g);
+		if(gameStart) {
+			switch(level) {
+				
+				case 1:
+					level1(g);
+	//				System.out.println("Level " + 1);
+					break;
+				case 2:
+					level2(g);
+	//				System.out.println("Level " + 2);
+					break;
+				case 3:
+					level3(g);
+	//				System.out.println("Level " + 3);
+					break;
+				case 4:
+					thanks(g);
+	//				System.out.println("Level " + 4);
+					break;
+			}
 		}
 		
 		

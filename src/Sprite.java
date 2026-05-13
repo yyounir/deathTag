@@ -37,7 +37,6 @@ public class Sprite extends Rect{
 		}
 	}
 	
-	
 	public void goUP(int dy)
 	{
 		vy = -dy;
@@ -103,6 +102,7 @@ public class Sprite extends Rect{
 		this.x = x;
 		this.y = y;
 		direction = UP;
+		
 	}
 		
 	public void draw(Graphics g) {
