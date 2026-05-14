@@ -21,6 +21,9 @@ DEATHTag is a maze game where you guide lil' Youn, a hobo, to safely escape from
   <li>Eclipse IDE</li>
 </ul>
 
+## Video Explanation
+https://www.loom.com/share/1986f3357ab84d95ac132d7dd857bd12
+
 ## Associated with
 CMP 428 - Videogame Development<br>
 CUNY Lehman College - Spring 2026
