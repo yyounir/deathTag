@@ -5,7 +5,6 @@ import java.io.File;
 
 public class GameS26 extends GameBase {		
 	
-//	Violetta v = new Violetta(1205, 575, Violetta.DN);
 	Younir y = new Younir(300, 800, Younir.UP);
 	
 	BadChar bc = new BadChar(800, 450, Violetta.LT);
@@ -25,6 +24,7 @@ public class GameS26 extends GameBase {
 	    new Rect(350, 850, 1290, 60), // BOTTOM
 	    new Rect(20, 90, 350, 145),
 	    new Rect(1450, 90, 100, 100), // LV1 COMPLETE r[7]
+	    
 	},{
 		new Rect(0, 70, 1700, 20), // TOP
 	    new Rect(30, 0, 20, 1000), // LEFT
@@ -470,10 +470,6 @@ public class GameS26 extends GameBase {
 	
 	String speedMessage = "SPEED: " + speed + "mph";
 	
-	
-//	Wall wall1 = new Wall("mazeWall1.png", 500, 500);
-//	Wall top1 = new Wall("mazeTop1.png", 500, 460);
-	
 	Background title = new Background("title.png", 1600, 900);
 	Background background = new Background("mazeEmpty.png", 1600, 900);
 	Background background2 = new Background("mazeEmpty2.png", 1600, 900);
@@ -524,13 +520,6 @@ public class GameS26 extends GameBase {
 			gameStart = true;
 		}
 		
-		
-		
-		
-		
-//		if(pressing[SHFT]) {
-//			speed = 10;
-//		}
 //		y.physics = true;
 		if(pressing[UP] || pressing[_W]) 	y.goUP((int)speed);
 		if(pressing[DN] || pressing[_S]) 	y.goDN((int)speed);
@@ -631,13 +620,6 @@ public class GameS26 extends GameBase {
 			
 			
 		}
-		
-//		if(y.overlaps(r4)) r4.pushes(y);
-		
-		
-		
-		// Update the Screen
-
 	}
 	
 	public void title(Graphics g) {

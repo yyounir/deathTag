@@ -183,21 +183,21 @@ public class Wall extends Rect{
 	}
 	
 	public void draw(Graphics g) {
-//		g.drawImage(image, x, y, w, h, null);
+		g.drawImage(image, x, y, w, h, null);
 
-		switch (filename) {
-			case "mazeWall1.png":
-				g.drawImage(image, x, y, w, h, null);
-				g.setColor(Color.YELLOW);
-				new Rect(x, y, w, h).draw(g);
-//				new Rect(rect2.x, rect2.y, rect2.w, rect2.h).draw(g);
-//				new Rect(rect3.x, rect3.y, rect3.w, rect3.h).draw(g);
-//				new Rect(rect4.x, rect4.y, rect4.w, rect4.h).draw(g);
-//				new Rect(rect5.x, rect5.y, rect5.w, rect5.h).draw(g);
-//				new Rect(rect6.x, rect6.y, rect6.w, rect6.h).draw(g);
-				
-			default:
-				g.drawImage(image, x, y, w, h, null);
-		}
+//		switch (filename) {
+//			case "mazeWall1.png":
+//				g.drawImage(image, x, y, w, h, null);
+//				g.setColor(Color.YELLOW);
+//				new Rect(x, y, w, h).draw(g);
+////				new Rect(rect2.x, rect2.y, rect2.w, rect2.h).draw(g);
+////				new Rect(rect3.x, rect3.y, rect3.w, rect3.h).draw(g);
+////				new Rect(rect4.x, rect4.y, rect4.w, rect4.h).draw(g);
+////				new Rect(rect5.x, rect5.y, rect5.w, rect5.h).draw(g);
+////				new Rect(rect6.x, rect6.y, rect6.w, rect6.h).draw(g);
+//				
+//			default:
+//				g.drawImage(image, x, y, w, h, null);
+//		}
 	}
 }
