@@ -12,14 +12,14 @@ Based on the core class architecture, the game includes:
 
 ## 🕹️ Controls
 While specific keybindings can be configured in the main game loop, the game defaults to standard 2D top-down controls:
-* **Movement:** `W`, `A`, `S`, `D` or **Arrow Keys** to move Violetta or Younir.
+* **Movement:** `W`, `A`, `S`, `D` or **Arrow Keys** to move Violetta or Youn.
 * **Interaction/Action:** Typically `Spacebar` or `Enter` (check `GameBase.java` for specific event listeners).
 * **UI/Menu:** `Escape` to pause or exit menus.
 
 ## 👤 Characters & Enemies
 ### Playables
-* **Younir:** The main character, featuring 4-directional sprite animations (Up, Down, Left, Right).
-* **Violetta:** The enemy, chases after Younir
+* **Youn:** The main character, featuring 4-directional sprite animations (Up, Down, Left, Right).
+* **Violetta:** The enemy, chases after Youn
 
 ## 🍕 Foods
 The game is packed with a massive assortment of food-based sprites, used for collection, increasing speed, abd scoring. Highlights include:
