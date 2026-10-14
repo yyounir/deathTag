@@ -84,4 +84,4 @@ https://www.loom.com/share/1986f3357ab84d95ac132d7dd857bd12
 
 ## 🙌 Associated With
 CMP 429 - Videogame Development <br/>
-CUNY lehman College
+CUNY Lehman College
